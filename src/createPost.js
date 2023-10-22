@@ -21,6 +21,16 @@ textInput.addEventListener("input", function () {
 
 button.addEventListener("click", async () => {
   try {
+    const tweetContent = textInput.value;
+    const tweetLength = tweetContent.length;
+
+    // Check if the tweet content exceeds the character limit (280 characters)
+    if (tweetLength > 280) {
+      console.log(
+        "Your message is too long. Please keep it under 280 characters."
+      );
+      return; // Do not proceed with the post if the tweet is too long.
+    }
     const postObject = await fetchTweet(textInput.value);
     textInput.value = "";
     characterCount.textContent = `0`;
