@@ -41,6 +41,9 @@ button.addEventListener("click", async () => {
       divElement.innerHTML = `<p>Tweet Submitted Successfully, Tweetid = ${postObject.id}</p>`;
       const main = document.querySelector("main");
       main.appendChild(divElement);
+      setTimeout(() => {
+        main.removeChild(divElement);
+      }, 5000);
     } else {
       console.log("Successful response with no postObject");
     }
