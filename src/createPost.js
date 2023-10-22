@@ -10,7 +10,7 @@ textInput.addEventListener("input", function () {
   if (lengthOfString === 0) {
     console.log("Please enter a valid string");
   } else if (lengthOfString > 280) {
-    characterCount.textContent = `${280 - text.length}`;
+    characterCount.textContent = `${280 - lengthOfString}`;
     characterCount.classList.add("text-red-400");
     console.log("Your message is too long");
   } else {
@@ -21,24 +21,30 @@ textInput.addEventListener("input", function () {
 
 button.addEventListener("click", async () => {
   try {
-    await fetchTweet(textInput.value);
+    const postObject = await fetchTweet(textInput.value);
     textInput.value = "";
     characterCount.textContent = `0`;
     button.disabled = true;
+
+    if (postObject) {
+      const divElement = document.createElement("div");
+      divElement.classList.add(
+        "response",
+        "bg-white",
+        "text-black",
+        "border",
+        "border-solid",
+        "border-[#ddd]",
+        "p-3",
+        "m-3"
+      );
+      divElement.innerHTML = `<p>Tweet Submitted Successfully, Tweetid = ${postObject.id}</p>`;
+      const main = document.querySelector("main");
+      main.appendChild(divElement);
+    } else {
+      console.log("Successful response with no postObject");
+    }
   } catch (error) {
     console.error("Error occurred while posting the tweet:", error);
   }
-
-  //   if (postObject) {
-  //     (postObject.username = "anujagrazzel"),
-  //       (postObject.commentCount = "0"),
-  //       (postObject.groupCount = "0"),
-  //       (postObject.heartCount = "0"),
-  //       (postObject.profilePicture = "public/images/User avatar5.png"),
-  //       (postObject.frameCount = "0"),
-  //       (postObject.vectorCount = "0");
-  //     const component = createTweet(postObject);
-  //     dummyTweet.unshift(postObject);
-  //     document.getElementById("tweets").appendChild(component);
-  //   }
 });
