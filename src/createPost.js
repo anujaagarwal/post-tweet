@@ -43,7 +43,7 @@ button.addEventListener("click", async () => {
       main.appendChild(divElement);
       setTimeout(() => {
         main.removeChild(divElement);
-      }, 5000);
+      }, 3000);
     } else {
       console.log("Successful response with no postObject");
     }
