@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compose 1</title>
+    <link href="../../../dist/output.css" rel="stylesheet" />
+  </head>
+  <body class="bg-neutral-1000 w-90 m-auto">
+    <header class="flex justify-between py-3 px-4">
+      <a
+        href="https://100x-engineers.github.io/layouts-assignment-anujaagarwal/src/layouts/home-feed"
+        ><img src="../../../public/images/x.svg"
+      /></a>
+      <button
+        class="text-center text-neutral-50 bg-twitter-blue text-base font-bold inline-flex items-center gap-2.5 py-3 px-6 w-22 h-11 rounded-3.2xl hover:bg-twitter-second disabled:bg-twitter-second disabled:opacity-50"
+        disabled
+      >
+        Post
+      </button>
+    </header>
+    <main>
+      <div class="flex ml-4 gap-3">
+        <img src="../../../public/images/User avatar.png" />
+        <input
+          type="text"
+          placeholder="What's happening?"
+          class="bg-neutral-1000 outline-none text-neutral-600"
+        />
+      </div>
+    </main>
+    <footer
+      class="py-3 px-4 border-t border-solid border-neutral-800 mt-107 text-neutral-600"
+    >
+      <span id="character-count" class="text-neutral-600">0</span>/280
+    </footer>
+    <script type="module" src="createPost.js"></script>
+  </body>
+</html>
